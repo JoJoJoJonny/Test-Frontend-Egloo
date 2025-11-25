@@ -10,7 +10,9 @@
 }
 
 body{
-    margin: 3% 20%;
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
     padding: 0;
     background-color: var(--bg-color);
 
@@ -32,14 +34,14 @@ body{
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex: 2;
+    flex: none;
     align-items: center;
 }
 
 .nav-center {
     display: flex;
     justify-content: center;
-    flex: 1;
+    flex: none;
 }
 
 .nav-center img {
@@ -210,3 +212,88 @@ hr{
     display: flex;
     flex-direction: column;
 }
+
+
+
+
+
+
+
+
+/*per responsive*/
+
+/*in modalità "tablet" il logo risulta in alto e la navbar orizzontale sotto*/
+@media (max-width: 1300px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-center {
+        order: 0; /*order mi serve per mettere prima il logo, poi i link di sinistra e poi quelli di destra*/
+        margin-bottom: 2%;
+        justify-content: center;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: row; /*serve per mantenere i link in orizzontale*/
+        justify-content: center;
+        gap: 15px;
+        margin: 5px 0;
+    }
+
+    .nav-left {
+        order: 1;
+    }
+
+    .nav-right {
+        order: 2;
+    }
+
+
+
+    /*le colonne si riducono a 2*/
+    .grid_container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .img_container_large {
+        grid-column: 1 !important;
+    }
+
+    .description_container_right {
+        grid-column: 2 !important;
+    }
+
+}
+
+/*in modalità "telefono" il logo risulta in alto e la navbar verticale*/
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;     
+        align-items: stretch;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: column; /*serve per mantenere i link in verticale*/
+        justify-content: center;
+        width: 100%;
+        margin: 5px 0;
+        gap: 5px;
+    }
+
+    .nav-left a, .nav-right a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-center {
+        margin-bottom: 2%;
+        justify-content: center;
+    }
+
+
+}
+
+
+
